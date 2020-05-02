@@ -4,7 +4,7 @@ class Automovil{
     #Declaro las propiedades
     public $marca;
     public $año;
-    
+    public $estado;
     #Declaro los metódos 
     function mostrar(){
         echo "soy el auto $this->marca, año $this->año";
