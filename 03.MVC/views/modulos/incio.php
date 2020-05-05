@@ -1,1 +1,0 @@
-<H1 class="text-danger align-center">PAGINA INICIO</H1>
