@@ -62,9 +62,9 @@
 
         <?php
             /* Variable isset */
+            $opcion= (isset($_GET['pagina']))?$_GET['pagina']:"";
 
-           
-              switch (isset($_GET['pagina'])) {
+              switch ($opcion) {
                 case 'registro':
                   include "paginas/registro.php";  
                   break;
