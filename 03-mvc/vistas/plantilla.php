@@ -38,23 +38,54 @@
             <a class="nav-link" href="index.php?pagina=registro"><i class="fa fa-home"></i>REGISTRO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><i class="fab fa-accusoft"></i> PAGINA 2</a
+            <a class="nav-link" href="index.php?pagina=ingreso"
+              ><i class="fab fa-accusoft"></i>INGRESO</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><i class="fa fa-angellist"></i> PAGINA 3</a
+            <a class="nav-link" href="index.php?pagina=inicio"
+              ><i class="fa fa-angellist"></i>INICIO</a
             >
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?pagina=salir"
+              ><i class="fa fa-angellist"></i>SALIR</a
+            >
+          </li>
+          
         </ul>
       </nav>
     </div>
 
     <div class="container-fluid py-5">
       <div class="container">
+
         <?php
-            include "paginas/inicio.php";        
+            /* Variable isset */
+
+           
+              switch (isset($_GET['pagina'])) {
+                case 'registro':
+                  include "paginas/registro.php";  
+                  break;
+                case 'ingreso':
+                  include "paginas/ingreso.php";
+                  break;
+                case 'inicio':
+                  include "paginas/inicio.php";
+                  break;
+                case 'salir':
+                  include "paginas/salir.php";
+                  break;
+                
+                default:
+                  include "paginas/registro.php";  
+                  break;
+              }
+
+            
+
+                 
         ?>
        
       </div>
