@@ -11,6 +11,8 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     />
 
+    <link rel="stylesheet" type="text/css" href="vistas/style.css"/>
+
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -122,7 +124,12 @@
                   break;
                 
                 default:
+                if($opcion!=""){
+
+                  include "paginas/error404.php";  
+                }else{
                   include "paginas/registro.php";  
+                }
                   break;
               }
 
