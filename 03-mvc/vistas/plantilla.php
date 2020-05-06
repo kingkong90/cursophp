@@ -34,25 +34,68 @@
     <div class="container-fluid bg-light">
       <nav class="container">
         <ul class="nav nav-justified py-2 nav-pills">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?pagina=registro"><i class="fa fa-home"></i>REGISTRO</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?pagina=ingreso"
-              ><i class="fab fa-accusoft"></i>INGRESO</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?pagina=inicio"
-              ><i class="fa fa-angellist"></i>INICIO</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?pagina=salir"
-              ><i class="fa fa-angellist"></i>SALIR</a
-            >
-          </li>
           
+        <?php  if(isset($_GET['pagina'])):?>
+
+          <?php if($_GET['pagina']=="registro"):?>
+              <li class="nav-item">
+                <a class="nav-link active" href="index.php?pagina=registro"><i class="fa fa-home"></i>REGISTRO</a>
+              </li>
+          <?php else: ?>
+              <li class="nav-item">
+                <a class="nav-link " href="index.php?pagina=registro"><i class="fa fa-home"></i>REGISTRO</a>
+              </li>
+          <?php endif ?>
+
+          <?php if($_GET['pagina']=="ingreso"):?>
+              <li class="nav-item">
+                <a class="nav-link active" href="index.php?pagina=ingreso"><i class="fa fa-home"></i>INGRESO</a>
+              </li>
+          <?php else: ?>
+              <li class="nav-item">
+                <a class="nav-link " href="index.php?pagina=ingreso"><i class="fa fa-home"></i>INGRESO</a>
+              </li>
+          <?php endif ?>
+
+          <?php if($_GET['pagina']=="inicio"):?>
+              <li class="nav-item">
+                <a class="nav-link active" href="index.php?pagina=inicio"><i class="fa fa-home"></i>INICIO</a>
+              </li>
+          <?php else: ?>
+              <li class="nav-item">
+                <a class="nav-link " href="index.php?pagina=inicio"><i class="fa fa-home"></i>INICIO</a>
+              </li>
+          <?php endif ?>
+
+          <?php if($_GET['pagina']=="salir"):?>
+              <li class="nav-item">
+                <a class="nav-link active" href="index.php?pagina=salir"><i class="fa fa-home"></i>SALIR</a>
+              </li>
+          <?php else: ?>
+              <li class="nav-item">
+                <a class="nav-link " href="index.php?pagina=salir"><i class="fa fa-home"></i>SALIR</a>
+              </li>
+          <?php endif ?>
+
+        <?php else: ?>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="index.php?pagina=registro"><i class="fa fa-home"></i>REGISTRO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?pagina=ingreso"><i class="fa fa-home"></i>INGRESO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?pagina=inicio"><i class="fa fa-home"></i>INICIO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?pagina=salir"><i class="fa fa-home"></i>SALIR</a>
+              </li>
+
+
+        <?php endif ?>
+      
+      
         </ul>
       </nav>
     </div>
