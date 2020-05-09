@@ -3,7 +3,7 @@
     Class ControladorFormularios{
         #metodo para registro
 
-        static function ctrRegistro(){
+        static public function ctrRegistro(){
             if(isset($_POST['registroNombre'])){
                 
                 $tabla = "registros";
@@ -18,6 +18,17 @@
                 
             }
         }
+
+        #metodo para seleccionar registros
+        static public function ctrSeleccionarRegistros(){
+
+            $tabla= "registros";
+
+            $respuesta = ModeloFormularios::mdlSeleccionarRegistro($tabla);
+
+            return $respuesta;
+
+        } 
 
     } 
 
