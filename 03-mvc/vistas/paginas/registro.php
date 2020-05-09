@@ -40,7 +40,7 @@
 
         #manera de Instanciar un metodo Estatico
 
-        $registro = ControladorFormularios::ctrRegistro();
+        $registro = ControladorFormularios::ctrRegistro(); 
 
         if($registro=="ok"){
           echo '<script> 
