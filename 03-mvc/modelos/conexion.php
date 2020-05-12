@@ -9,7 +9,7 @@ class Conexion{
 
         //instancioar la clase PDO
         //PDO::("nombre del servidor", "nombre de la base de datos", "nombre de usuario", "password") 
-        $pdo= new PDO("mysql:host=localhost;dbname=curso-php;", "root","");
+        $pdo= new PDO("mysql:host=localhost;dbname=curso-php;", "janne","");
 
         //para trabajar con caractares latinos 
         $pdo->exec("set names utf8");

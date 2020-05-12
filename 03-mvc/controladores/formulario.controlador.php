@@ -44,7 +44,7 @@
 
                 if($respuesta["email"]==$_POST["ingresoEmail"] && $respuesta["password"]==$_POST["ingresoPassword"]){
 
-                    $_SESSION['validarIngreso']="ok";
+                    $_SESSION["validarIngreso"]= "ok";
                     
                     echo '<script> 
 
