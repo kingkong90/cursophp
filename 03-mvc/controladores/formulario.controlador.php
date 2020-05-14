@@ -20,11 +20,11 @@
         }
 
         #metodo para seleccionar registros
-        static public function ctrSeleccionarRegistros(){
+        static public function ctrSeleccionarRegistros($item, $valor){
 
             $tabla= "registros";
 
-            $respuesta = ModeloFormularios::mdlSeleccionarRegistro($tabla, null, null);
+            $respuesta = ModeloFormularios::mdlSeleccionarRegistro($tabla, $item, $valor);
 
             return $respuesta;
 
@@ -68,6 +68,53 @@
                 
             }
            
+        }
+
+         #metodo para actualizar
+
+         static public function ctrActualizarRegistro(){
+            if(isset($_POST['actualizarNombre'])){
+                if(($_POST['actualizarPassword'] != "")){
+                    $password = $_POST['actualizarPassword'];
+                }else{
+                    $password = $_POST['passwordActual'];
+                }
+                $tabla = "registros";
+
+                $datos = array( "id"=>$_POST['idUsuario'],
+                                "nombre"=>$_POST['actualizarNombre'],
+                                "email"=>$_POST['actualizarEmail'],
+                                "password"=>$password
+                               );
+                
+                $respuesta = ModeloFormularios::mdlActualizarRegistro($tabla,$datos);
+
+                return $respuesta;
+                
+                
+            }
+        }
+
+        #metodo para actualizar
+
+        public function ctrEliminarRegistro(){
+            if(isset($_POST["eliminarRegistro"])){
+                $tabla = "registros";
+                $valor = $_POST["eliminarRegistro"];
+
+                $respuesta = ModeloFormularios::mdlEliminarRegistro($tabla, $valor);
+
+                if($respuesta == "ok"){
+                    echo '<script> 
+
+                    if(window.history.replaceState){
+                      window.history.replaceState(null,null,window.location.href);
+                    }
+
+                    window.location="index.php?pagina=inicio";
+                    </script>';
+                }
+            }
         }
 
     } 

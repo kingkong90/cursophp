@@ -13,7 +13,7 @@
 
             $stmt-> bindParam(":nombre",$datos["nombre"], PDO::PARAM_STR);
             $stmt-> bindParam(":email",$datos["email"], PDO::PARAM_STR);
-            $stmt-> bindParam(":password",$datos["password"], PDO::PARAM_STR);
+            $stmt-> bindParam(":password",$datos["password"],  PDO::PARAM_STR);
             
             if($stmt->execute()){
                 return "ok";
@@ -48,6 +48,48 @@
             $stmt->close();
             $stmt = null;
            
+        }
+
+        static public function mdlActualizarRegistro($tabla, $datos){
+
+            #statement:declaracion 
+
+            $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre, email=:email, password=:password
+                                                WHERE id=:id");
+
+            $stmt-> bindParam(":nombre",$datos["nombre"], PDO::PARAM_STR);
+            $stmt-> bindParam(":email",$datos["email"], PDO::PARAM_STR);
+            $stmt-> bindParam(":password",$datos["password"], PDO::PARAM_STR);
+            $stmt-> bindParam(":id",$datos["id"],  PDO::PARAM_INT);
+           
+            if($stmt->execute()){
+                return "ok";
+            }else{
+                print_r(Conexion::conectar()->errorInfo());
+            }
+
+            $stmt -> close();
+            $stmt = null;
+
+        }
+
+        static public function mdlEliminarRegistro($tabla, $valor){
+
+            #statement:declaracion 
+
+            $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id=:id");
+
+            $stmt-> bindParam(":id",$valor,  PDO::PARAM_INT);
+           
+            if($stmt->execute()){
+                return "ok";
+            }else{
+                print_r(Conexion::conectar()->errorInfo());
+            }
+
+            $stmt -> close();
+            $stmt = null;
+
         }
 
 

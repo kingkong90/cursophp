@@ -18,7 +18,8 @@ if(!(isset($_SESSION["validarIngreso"])))
     }
 }
 
-$usuarios = ControladorFormularios::ctrSeleccionarRegistros();
+$usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
+
 
 ?>
 
@@ -43,8 +44,21 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros();
                 <td><?php echo $value["fecha"];  ?></td>
                 <td>
                     <div class="btn-group" role="group" aria-label="button group">
-                        <button type="button" class="btn btn-warning">Editar</button>
-                        <button type="button" class="btn btn-danger">Eliminar</button>
+                        <div class="px-1">
+                               <a href="index.php?pagina=editar&id=<?php echo $value["id"]; ?>" type="button" class="btn btn-warning">Editar</a>
+                        </div>
+                        <form action="" method="post">
+                            <input type="hidden" name="eliminarRegistro" value="<?php echo $value["id"];?>">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        
+                            <?php
+                            
+                                $eliminar = new ControladorFormularios();
+                                $eliminar ->ctrEliminarRegistro();
+                            ?>
+                        
+                        </form>
+                
                     </div>
                 </td>
             </tr>

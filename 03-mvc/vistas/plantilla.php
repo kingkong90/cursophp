@@ -124,6 +124,9 @@ session_start();
         case 'salir':
           include "paginas/salir.php";
           break;
+        case 'editar':
+          include "paginas/editar.php";
+          break;
 
         default:
           if ($opcion != "") {
