@@ -52,8 +52,15 @@
           echo '<div class="alert alert-success"> El usuario asido registrado</div>';
         }
 
+        if($registro=="error"){
+          echo '<script> 
 
-
+          if(window.history.replaceState){
+            window.history.replaceState(null,null,window.location.href);
+          }
+          </script>';
+          echo '<div class="alert alert-danger">No es permitido caracteres especiales</div>';
+        }
     ?>
 
 

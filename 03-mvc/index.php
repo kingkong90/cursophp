@@ -7,5 +7,5 @@ $plantilla=new ControladorPlantilla();
 
 $plantilla->ctroTraerPlantilla();
 
-?>
+
 
